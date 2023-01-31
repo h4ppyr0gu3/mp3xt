@@ -1,0 +1,32 @@
+{
+  "name": "mp3xt",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build && web-ext build --overwrite-dest -s ./build/dist -a ./build/ && cp -f ./build/*.zip /mnt/e/extensions/",
+    "sign": "web-ext sign --api-key $(grep WEB_EXT_API_KEY .env | cut -d '=' -f2) --api-secret $(grep WEB_EXT_API_SECRET .env | cut -d '=' -f2) -s ./build/dist -a ./build/",
+    "serve": "vite preview",
+    "ext": "web-ext"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-solid": "^2.2.6",
+    "vite-plugin-web-extension": "^1.4.8"
+  },
+  "dependencies": {
+    "axios": "^1.2.6",
+    "eslint": "^8.33.0",
+    "solid-js": "^1.6.9",
+    "tailwind": "^4.0.0",
+    "terser": "^5.16.1"
+  }
+}
