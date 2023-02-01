@@ -1,13 +1,14 @@
 import { Show, createSignal, onMount } from "solid-js";
 import axios from "axios";
 import { SessionStatus, addTrackToLibrary } from "../utils";
+import FutureSearch from "./future_search";
 
 export default function MainPage() {
   const [youtubeSite, setYoutubeSite] = createSignal(false);
   const [loggedIn, setLoggedIn] = SessionStatus();
+  let searchPhrase: HTMLInputElement;
 
   function handleAddToTracks() {
-    console.log("clicked");
     browser.tabs.query({active: true}).then((tabs) => {
       const url = new URL(tabs[0].url); 
       const videoId = url.searchParams.get('v');
@@ -29,7 +30,7 @@ export default function MainPage() {
       }).then((params) => {
         addTrackToLibrary(params)
       }).catch((error) => {console.warn(error)
-    })
+      })
   }
 
   function intToISOString(secs) {
@@ -64,6 +65,10 @@ export default function MainPage() {
       .catch(() => {setLoggedIn({loggedIn: false})});
   }
 
+  async function handleAdd() {
+
+  }
+
   return (
     <>
       <div class="bg-gray-50 mx-auto p-10">
@@ -74,22 +79,24 @@ export default function MainPage() {
             </div>
           </div>
         </Show>
-        <div class="mx-auto max-w-md">
-          <div class="flex h-40 max-w-md items-center justify-between">
-            <div onClick={handleDownloadRemaining} class="mx-5 max-w-md rounded-lg bg-gray-200 shadow hover:cursor-pointer select-none">
-              <div class="p-4">
-                <h3 class="text-xl font-medium text-gray-900" >Download Remaining</h3>
-              </div>
-            </div>
-            <div onClick={handleDownloadAll} class="mx-5 max-w-md rounded-lg bg-gray-200 shadow hover:cursor-pointer select-none">
-              <div class="p-4">
-                <h3 class="text-xl font-medium text-gray-900" >Download All Songs</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <FutureSearch/>
         <button class="bg-blue-400 p-2 rounded" onClick={handleLogout}>Log Out</button>
+      </div>
       </>
   )
 }
+
+// <div class="mx-auto max-w-md">
+//   <div class="flex h-40 max-w-md items-center justify-between">
+//     <div onClick={handleDownloadRemaining} class="mx-5 max-w-md rounded-lg bg-gray-200 shadow hover:cursor-pointer select-none">
+//       <div class="p-4">
+//         <h3 class="text-xl font-medium text-gray-900" >Download Remaining</h3>
+//       </div>
+//     </div>
+//     <div onClick={handleDownloadAll} class="mx-5 max-w-md rounded-lg bg-gray-200 shadow hover:cursor-pointer select-none">
+//       <div class="p-4">
+//         <h3 class="text-xl font-medium text-gray-900" >Download All Songs</h3>
+//       </div>
+//     </div>
+//   </div>
+// </div>
