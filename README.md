@@ -7,5 +7,5 @@ Add tracks to your profile whilst listening to them on youtube
 ### ToDo
 
 - add offline list
-- add notifications
+- add notifications on success and failure with loading animation
 - reimplement logout
