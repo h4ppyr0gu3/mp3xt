@@ -44,7 +44,6 @@ const App: Component = () => {
   
   return (
   <>
-    <h1 class="text-gray-900 text-lg">Mp3xt</h1>
     <Show when={loggedIn.loggedIn}
       fallback={<Login/>}>
       <MainPage/>

@@ -71,16 +71,24 @@ export default function MainPage() {
 
   return (
     <>
+      <div class="grid grid-cols-2 bg-gray-50">
+        <h1 class="text-xl font-semibold col-span-1">MP3XT</h1>
+        <div class="col-span-1 flex justify-end">
+          <button class="bg-primary-500 focus:ring-primary-200 hover:bg-primary-700 p-2 rounded text-white font-medium" onClick={handleLogout}>Log Out</button>
+        </div>
+      </div>
       <div class="bg-gray-50 mx-auto p-10">
-        <Show when={youtubeSite()} fallback={<div/>}>
-          <div onClick={handleAddToTracks} class="mx-auto max-w-md rounded-lg bg-gray-400 shadow hover:cursor-pointer select-none py-10">
+        <Show when={youtubeSite()} fallback={
+          <div class="bg-gray-50 flex justify-center">
+            <h1 class="text-l font-semibold">You need to be on Youtube to use this functionality</h1>
+          </div>
+        }>
+          <div onClick={handleAddToTracks} class="mx-auto max-w-md rounded-lg bg-gray-200 shadow hover:cursor-pointer select-none py-10 border-black border-dashed hover:border-solid border hover:bg-green-400 hover:bg-opacity-30">
             <div class="p-4">
               <h3 class="text-xl font-medium text-gray-900" >Add Current Track</h3>
             </div>
           </div>
         </Show>
-          <FutureSearch/>
-        <button class="bg-blue-400 p-2 rounded" onClick={handleLogout}>Log Out</button>
       </div>
       </>
   )
