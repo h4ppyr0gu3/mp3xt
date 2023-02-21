@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.0",
+  "version": "1.0.1",
   "name": "mp3xt",
   "author": "h4ppyr0gu3",
   "description": "mapp helper extension",
