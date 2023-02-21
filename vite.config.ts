@@ -13,7 +13,7 @@ export default defineConfig({
         assets: "assets",
         webExtConfig: {
           firefox: "firefox-developer-edition",
-          startUrl: ["youtube.com"],
+          startUrl: ["music.youtube.com"],
           browserConsole: true,
           args: ["--devtools"]
         },

@@ -17,7 +17,7 @@ type Session = {
 }
 
 const App: Component = () => {
-  window.backendServer = "http://localhost:3001";
+  window.backendServer = "https://music.h4ppyr0gu3.one";
   window.invidiousApi = "https://vid.puffyan.us";
   const [loggedIn, setLoggedIn]: [Store<Session>, SetStoreFunction<Session>] = SessionStatus()
 
